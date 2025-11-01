@@ -1,54 +1,78 @@
-/* Global Styles */
+/* === GLOBAL === */
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f8f0; /* Light green background for a fresh look */
+  background-color: #f5f7f6;
   color: #333;
 }
 
 header {
-  background: linear-gradient(
-    135deg,
-    #4caf50,
-    #81c784
-  ); /* Shiny green gradient */
+  background: linear-gradient(135deg, #263238, #37474f);
   padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header .logo {
-  color: white;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-header nav ul {
+/* === MENU BUTTON === */
+.menu-toggle {
+  background: #455a64;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #546e7a;
+}
+
+nav ul {
   list-style: none;
-  display: flex;
-  justify-content: center;
   margin: 0;
   padding: 0;
+  display: none;
+  flex-direction: column;
+  background: #37474f;
+  border-radius: 8px;
+  margin-top: 1rem;
 }
 
-header nav ul li {
-  margin: 0 1rem;
+nav ul.show {
+  display: flex;
 }
 
-header nav ul li a {
-  color: white;
+nav ul li {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+nav ul li a {
+  color: #eceff1;
   text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
   transition: all 0.3s ease;
 }
 
-header nav ul li a:hover {
-  color: #ffeb3b; /* Yellow glow for contrast */
-  text-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
+nav ul li a:hover {
+  background: #546e7a;
+  border-radius: 5px;
 }
 
+/* === SECTION STYLE === */
 main {
   padding: 2rem;
 }
@@ -56,13 +80,9 @@ main {
 section {
   margin: 2rem 0;
   padding: 2rem;
-  background: linear-gradient(
-    135deg,
-    #c8e6c9,
-    #a5d6a7
-  ); /* Subtle shiny green gradient */
+  background: #eceff1;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shiny glow effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in;
 }
 
@@ -80,17 +100,19 @@ section {
 h1,
 h2,
 h3 {
-  color: #2e7d32; /* Dark green for headings */
+  color: #263238;
 }
 
+/* === CARD === */
 .card {
   text-align: center;
   max-width: 400px;
   margin: auto;
-  padding: 1rem;
-  background: linear-gradient(135deg, #66bb6a, #43a047); /* Shiny green card */
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #455a64, #37474f);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(67, 160, 71, 0.5); /* Glow effect */
+  color: white;
+  box-shadow: 0 0 20px rgba(55, 71, 79, 0.5);
 }
 
 .card img {
@@ -100,6 +122,7 @@ h3 {
   border: 4px solid #fff;
 }
 
+/* === PORTFOLIO === */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -107,7 +130,7 @@ h3 {
 }
 
 .portfolio-item {
-  background: #e8f5e9;
+  background: #cfd8dc;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -115,22 +138,18 @@ h3 {
 }
 
 .portfolio-item:hover {
-  transform: scale(1.05); /* Zoom effect for attractiveness */
+  transform: scale(1.05);
 }
 
-.timeline {
-  position: relative;
-  margin: 2rem 0;
-}
-
+/* === TIMELINE === */
 .timeline-item {
-  background: #c5e1a5;
+  background: #b0bec5;
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* === CONTACT === */
 .contact-card {
   text-align: center;
   max-width: 500px;
@@ -147,13 +166,13 @@ h3 {
 .contact-card textarea,
 .contact-card button {
   padding: 0.8rem;
-  border: 1px solid #4caf50;
+  border: 1px solid #455a64;
   border-radius: 5px;
   background: #fff;
 }
 
 .contact-card button {
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, #455a64, #37474f);
   color: white;
   border: none;
   cursor: pointer;
@@ -161,23 +180,37 @@ h3 {
 }
 
 .contact-card button:hover {
-  background: linear-gradient(135deg, #66bb6a, #4caf50);
+  background: linear-gradient(135deg, #37474f, #263238);
 }
 
+/* === FOOTER === */
 footer {
   text-align: center;
   padding: 1rem;
-  background: #2e7d32;
+  background: #263238;
   color: white;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  header nav ul {
-    flex-direction: column;
+/* === RESPONSIVE === */
+@media (min-width: 768px) {
+  nav ul {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    background: none;
+    margin-top: 0;
   }
 
-  section {
-    padding: 1rem;
+  .menu-toggle {
+    display: none;
+  }
+
+  nav ul li {
+    margin: 0 1rem;
+  }
+
+  nav ul li a:hover {
+    background: none;
+    color: #ffeb3b;
   }
 }
